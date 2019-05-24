@@ -1,5 +1,5 @@
 {
-  "name": "angular-starter",
+  "name": "field-observation",
   "version": "2.2.0",
   "license": "MIT",
   "scripts": {
@@ -14,7 +14,7 @@
     "bundle-report": "webpack-bundle-analyzer dist/browser/stats.json",
     "prod": "http-server ./dist/browser -o -g",
     "build:prod": "ng build --target=production --environment=prod",
-    "deploy": "ng build --prod --base-href /angular-starter/ && angular-cli-ghpages --no-silent --dir=dist/browser",
+    "deploy": "ng build --prod --base-href /field-observation/ && angular-cli-ghpages --no-silent --dir=dist/browser",
     "docs": "compodoc -p tsconfig.json",
     "docs:serve": "compodoc -p tsconfig.json -s",
     "docs:watch": "compodoc -p tsconfig.json -s -w",
@@ -23,7 +23,7 @@
     "e2e": "ng e2e",
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server",
-    "build:client-and-server-bundles": "ng build --prod && ng run angular-starter:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run field-observation:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "build-ie-polyfills": "webpack-cli src/polyfills-ie.ts -o src/assets/scripts/polyfills-ie.min.js -c webpack-polyfill.config.js"
   },

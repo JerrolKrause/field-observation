@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     canvasHeight: 200,
   };
 
-  public step = 2;
+  public step = 1;
 
   constructor(private fb: FormBuilder) {}
 
@@ -45,6 +45,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         shovels: [null, []],
       }),
     });
+  }
+
+  public restart() {
+    this.formMain.reset();
+    this.step = 1;
   }
 
   // Must be present even if not used for unsubs
