@@ -1,0 +1,52 @@
+@import '../../../../styles/globals/variables';
+
+header {
+  background-color: #203f75;
+  color: #fff;
+  border-bottom: 1px solid #e2e5e8;
+  margin-bottom: 1rem;
+  .navbar-brand {
+    margin-right: 3rem;
+    color: #000;
+    .fa {
+      color: yellow;
+    }
+  }
+  h1{text-transform: uppercase;}
+  .navbar{position:relative;padding-left: 160px!important;}
+  .navbar-brand {
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3);
+    color: $interact-primary;
+    background: url('/assets/img/Mowbrays-logo-1.png') no-repeat center center;
+    background-size:contain;
+    position: absolute;
+    display:block;
+    width: 140px;
+    height: 90px;
+    text-indent:-999px;
+    overflow:hidden;
+    top: 10px;
+    left: 0;
+    z-index:999;
+  }
+  .search-group {
+    padding: 0.5em 1em;
+    .form-control,
+    .btn {
+      border: 0;
+    }
+    .btn {
+      border-left-width: 1px;
+    }
+    .search-option {
+      width: 7rem;
+    }
+    .search-field {
+      width: 8rem;
+    }
+  }
+
+  .navbar {
+    padding: 0;
+  }
+}

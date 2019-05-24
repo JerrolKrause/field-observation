@@ -1,0 +1,205 @@
+<div id="app-home" class="container-fluid pt-5">
+  <mat-card class="m-auto text-left" style="max-width:860px;" *ngIf="step === 2">
+    <div class="py-3">
+      <h2 style="font-size:1.8rem;">Complete!</h2>
+      <p>You entered the following information:</p>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Warning Signs</td>
+            <td>{{ formMain.value.step2.warning }}</td>
+          </tr>
+          <tr>
+            <td>Corner Setup</td>
+            <td>{{ formMain.value.step2.corner }}</td>
+          </tr>
+          <tr>
+            <td>Flagger</td>
+            <td>{{ formMain.value.step2.flagger }}</td>
+          </tr>
+          <tr>
+            <td>Vehicle</td>
+            <td>{{ formMain.value.step2.vehicle }}</td>
+          </tr>
+
+          <tr>
+              <td>Required Water</td>
+              <td>{{ formMain.value.step3.water }}</td>
+            </tr>
+            <tr>
+              <td>Trash Container</td>
+              <td>{{ formMain.value.step3.trash }}</td>
+            </tr>
+            <tr>
+              <td>First Aid Kit</td>
+              <td>{{ formMain.value.step3.firstAid }}</td>
+            </tr>
+            <tr>
+              <td>Shovels</td>
+              <td>{{ formMain.value.step3.shovels }}</td>
+            </tr>
+        </tbody>
+      </table>
+      <div class="nav-buttons">
+        <button mat-stroked-button (click)="step = 1">
+          <i class="fa fa-plus" aria-hidden="true"></i> Enter new field observation
+        </button>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="m-auto text-left" style="max-width:860px;" *ngIf="step === 1">
+    <form [formGroup]="formMain">
+      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <ng-template matStepperIcon="done">
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        </ng-template>
+        <ng-template matStepperIcon="edit">
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        </ng-template>
+
+        <mat-step [stepControl]="formMain.get('step1')">
+          <ng-template matStepLabel>Username</ng-template>
+          <div class="py-4">
+            <form [formGroup]="formMain.get('step1')" style="font-size:1.8rem;">
+              <h2 style="font-size:1.8rem;">Please enter your user name</h2>
+              <app-form-field formControlName="username" placeholder=""></app-form-field>
+            </form>
+          </div>
+          <div class="nav-buttons text-right">
+            <button mat-stroked-button matStepperNext>
+              Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </mat-step>
+        <mat-step [stepControl]="formMain.get('step1')">
+          <ng-template matStepLabel>Pin</ng-template>
+          <div class="py-4">
+            <form [formGroup]="formMain.get('step1')" style="font-size:1.8rem;">
+              <h2 style="font-size:1.8rem;">For security, please provide your private PIN</h2>
+              <app-form-field formControlName="pin" placeholder=""></app-form-field>
+            </form>
+          </div>
+          <div class="nav-buttons text-right">
+            <button mat-stroked-button matStepperNext>
+              Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </mat-step>
+        <mat-step [stepControl]="formMain.get('step2')">
+          <ng-template matStepLabel>Worksite Setup</ng-template>
+          <form [formGroup]="formMain.get('step2')" style="font-size:1.8rem;" class="py-4">
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">Warning Signs</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="warning" placeholder=""></app-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">Corner Setup</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="corner" placeholder=""></app-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">Flagger</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="flagger" placeholder=""></app-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">Vehicle</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="vehicle" placeholder=""></app-form-field>
+              </div>
+            </div>
+          </form>
+
+          <div class="nav-buttons d-flex justify-content-between">
+            <button mat-flat-button matStepperPrevious>
+              <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
+            </button>
+            <button mat-stroked-button matStepperNext>
+              Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </mat-step>
+
+        <mat-step [stepControl]="formMain.get('step3')">
+          <ng-template matStepLabel>Required Equipment</ng-template>
+
+          <form [formGroup]="formMain.get('step3')" style="font-size:1.8rem;" class="py-4">
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">Required Water</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="water" placeholder=""></app-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">Trash Container</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="trash" placeholder=""></app-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">First Aid Kit</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="firstAid" placeholder=""></app-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-12 col-md-4">
+                <h2 class="pt-4" style="font-size:1.8rem;">Shovels</h2>
+              </div>
+              <div class="col col-12 col-md-8">
+                <app-form-field formControlName="shovels" placeholder=""></app-form-field>
+              </div>
+            </div>
+          </form>
+
+          <div class="nav-buttons d-flex justify-content-between">
+            <button mat-flat-button matStepperPrevious>
+              <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
+            </button>
+            <button mat-stroked-button matStepperNext>
+              Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Sign &amp; Submit</ng-template>
+
+          <div class="py-4">
+            <h2 style="font-size:1.8rem;">Please sign your name</h2>
+            <div style="width:100%;border:1px solid #ccc;">
+              <signature-pad [options]="signaturePadOptions"></signature-pad>
+            </div>
+          </div>
+
+          <div class="nav-buttons d-flex justify-content-between">
+            <button mat-flat-button matStepperPrevious>
+              <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
+            </button>
+            <button mat-stroked-button (click)="step = 2">Submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </form>
+  </mat-card>
+</div>

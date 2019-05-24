@@ -1,0 +1,21 @@
+<div class="container-fluid" *ngIf="{ users: users$ | async } as route">
+  <p>
+    This is a copy+pastable lazy loaded routed module.
+  </p>
+  <p>Be sure to update app.routes.ts.</p>
+
+  <button mat-button (click)="usersRefresh()">Refresh Users</button>
+
+  <div>
+    <nt-domain-state [state]="route.users">
+      <mat-tab-group
+        [selectedIndex]="ui.query.tabActive$('home') | async"
+        (selectedTabChange)="ui.tabChange('home', $event)"
+      >
+        <mat-tab label="First"> Content 1 </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+      </mat-tab-group>
+    </nt-domain-state>
+  </div>
+</div>
