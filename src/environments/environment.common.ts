@@ -4,7 +4,7 @@ import { local } from './environment.local';
 export const common: any = {
   properties: {
     /** Name of application */
-    appName: 'Angular Starter',
+    appName: `Mowbray's Tree Service`,
   },
   settings: {
     /** Is an authentication endpoint available? If so make sure to update the endpoints in this file */

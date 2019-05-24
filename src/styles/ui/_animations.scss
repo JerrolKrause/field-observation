@@ -46,6 +46,11 @@
 }
 @keyframes slideInFromRight  { from { left:20px;} to {left:0px;} }
 
+.anim-fade-slide-in-from-right{
+  position:relative;animation: slideFadeInFromRight .5s $easeOutQuart;animation-fill-mode:forwards;opacity:0;
+}
+@keyframes slideFadeInFromRight  { from { left:40px;} to {left:0px;opacity:1;} }
+
 .anim-slide-in-from-left{
   position:relative;animation: slideInFromLeft .6s ease-out;animation-fill-mode:forwards;
 }
