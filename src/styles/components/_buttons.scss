@@ -92,7 +92,13 @@ body {
       .fa { display: none; }
       &:after { font-family: FontAwesome; content: "\f110"; animation: fa-spin 2s infinite linear; display: inline-block; position: relative; left: -3px; }
     }
-    &.mat-stroked-button{background-image: linear-gradient(to bottom, #fff 20%, #e9ecef 100%);}
+    &.mat-button{
+      background-image: initial;
+      background-color: #df363d;
+      color: #ffffff !important;
+      border-radius: 25px;
+      &:after{display:none;}
+    }
   }
 
   // Button toggle

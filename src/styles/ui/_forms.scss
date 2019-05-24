@@ -108,9 +108,19 @@ label { cursor: pointer; display: block;
   }
 }
 
+
+html{min-height: 100vh;}
+body { @include gradient(#fafdff,#bbc0c6);}
+
+
 .mat-step-icon-state-edit{
   background-color:#68c34a!important;
 }
 .mat-step-icon-selected{
   background-color: #203f75!important;
 }
+
+.mat-card{
+  box-shadow: 6px 6px 17px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)!important;
+}
+h2 .fa{color: #df363d;}

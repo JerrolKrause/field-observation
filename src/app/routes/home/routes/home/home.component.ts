@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
+import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 
 @AutoUnsubscribe()
 @Component({
@@ -12,13 +13,13 @@ import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 export class HomeComponent implements OnInit, OnDestroy {
   public formMain: FormGroup;
 
-  // @ViewChild(SignaturePad) signaturePad: SignaturePad;
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
   public signaturePadOptions: Object = {
     // passed through to szimek/signature_pad constructor
     minWidth: 5,
     canvasWidth: 780,
-    canvasHeight: 200,
+    canvasHeight: 300,
   };
 
   public step = 1;

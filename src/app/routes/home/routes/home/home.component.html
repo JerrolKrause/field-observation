@@ -41,7 +41,7 @@
         </tbody>
       </table>
       <div class="nav-buttons">
-        <button mat-stroked-button (click)="restart()">
+        <button mat-button (click)="restart()">
           <i class="fa fa-plus" aria-hidden="true"></i> Enter new field observation
         </button>
       </div>
@@ -50,7 +50,7 @@
 
   <mat-card class="m-auto text-left" style="max-width:860px;" *ngIf="step === 1">
     <form [formGroup]="formMain">
-      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-horizontal-stepper [linear]="true" #stepper>
         <ng-template matStepperIcon="done">
           <i class="fa fa-thumbs-up" aria-hidden="true"></i>
         </ng-template>
@@ -62,12 +62,12 @@
           <ng-template matStepLabel>Username</ng-template>
           <div class="py-4">
             <form [formGroup]="formMain.get('step1')" style="font-size:1.8rem;">
-              <h2 style="font-size:1.8rem;">Please enter your user name</h2>
+              <h2 style="font-size:1.8rem;"><i class="fa fa-user" aria-hidden="true"></i> Please enter your user name</h2>
               <app-form-field formControlName="username" placeholder=""></app-form-field>
             </form>
           </div>
           <div class="nav-buttons text-right">
-            <button mat-stroked-button matStepperNext>
+            <button mat-button matStepperNext>
               Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
@@ -76,12 +76,12 @@
           <ng-template matStepLabel>Pin</ng-template>
           <div class="py-4">
             <form [formGroup]="formMain.get('step1')" style="font-size:1.8rem;">
-              <h2 style="font-size:1.8rem;">For security, please provide your private PIN</h2>
+              <h2 style="font-size:1.8rem;"><i class="fa fa-lock" aria-hidden="true"></i> For security, please provide your private PIN</h2>
               <app-form-field formControlName="pin" placeholder=""></app-form-field>
             </form>
           </div>
           <div class="nav-buttons text-right">
-            <button mat-stroked-button matStepperNext>
+            <button mat-button matStepperNext>
               Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
@@ -128,7 +128,7 @@
             <button mat-flat-button matStepperPrevious>
               <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
             </button>
-            <button mat-stroked-button matStepperNext>
+            <button mat-button matStepperNext>
               Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
@@ -177,7 +177,7 @@
             <button mat-flat-button matStepperPrevious>
               <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
             </button>
-            <button mat-stroked-button matStepperNext>
+            <button mat-button matStepperNext>
               Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
@@ -186,17 +186,19 @@
           <ng-template matStepLabel>Sign &amp; Submit</ng-template>
 
           <div class="py-4">
-            <h2 style="font-size:1.8rem;">Please sign your name</h2>
-            <div style="width:100%;border:1px solid #ccc;">
-              <signature-pad [options]="signaturePadOptions"></signature-pad>
+              <button mat-flat-button class="float-right" (click)="signaturePad.clear()">Reset</button>
+            <h2 style="font-size:1.8rem;"><i class="fa fa-pencil" aria-hidden="true"></i> Please sign your name</h2>
+            <div class="text-right" style="width:100%;border:1px solid #ccc;">
+              <signature-pad [options]="signaturePadOptions" #signature></signature-pad>
             </div>
+            
           </div>
 
           <div class="nav-buttons d-flex justify-content-between">
             <button mat-flat-button matStepperPrevious>
               <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
             </button>
-            <button mat-stroked-button (click)="step = 2">Submit</button>
+            <button mat-button (click)="step = 2"><i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
