@@ -97,7 +97,7 @@
     "@types/node": "6.0.60",
     "angular-cli-ghpages": "0.5.3",
     "codelyzer": "4.4.4",
-    "express": "4.16.3",
+    "express": "4.17.3",
     "font-awesome": "4.7.0",
     "jasmine-core": "2.6.2",
     "jasmine-spec-reporter": "4.1.0",
